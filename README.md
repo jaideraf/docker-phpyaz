@@ -1,5 +1,5 @@
 # docker-phpyaz
-This is the Dockerfile for [jaideraf/phpyaz](https://hub.docker.com/r/jaideraf/phpyaz)
+Dockerfile for [jaideraf/phpyaz](https://hub.docker.com/r/jaideraf/phpyaz)
 
 Ubuntu 20.04 (focal) with PHP 7.4, phpyaz extension and Apache (timezone from America/Sao_Paulo). Includes the following PHP modules/extensions:
 ```
