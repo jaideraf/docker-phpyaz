@@ -1,31 +1,17 @@
-name: ci
-
-on:
-  push:
-    branches:
-      - "main"
+on: [push]
 
 jobs:
-  build:
+  docker-build-tag-push:
     runs-on: ubuntu-latest
+    name: Docker Build, Tag & Publish
     steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v3
-      -
-        name: Log in to Docker Hub
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      - name: Build, Tag & Publish Image to DockerHub
+        uses: dinushchathurya/build-tag-push-action@v1.2.1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      -
-        name: Build and push
-        uses: docker/build-push-action@v4
-        with:
           context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/phpyaz:latest
+          file: Dockerfile
+          repoOwner: ${{ secrets.DOCKER_USERNAME }}
+          repository:  phpyaz
+          tag: latest
