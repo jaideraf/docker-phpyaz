@@ -17,8 +17,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget "http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu66_66.1-2ubuntu2.1_amd64.deb"
-
-RUN dpkg -i libicu66_66.1-2ubuntu2.1_amd64.deb
+RUN dpkg -i libicu66_66.1-2ubuntu2.1_amd64.deb ; rm libicu66_66.1-2ubuntu2.1_amd64.deb
 
 RUN echo "deb [signed-by=/usr/share/keyrings/indexdata.gpg] https://ftp.indexdata.com/ubuntu focal main" \
     | tee -a /etc/apt/sources.list \
@@ -39,3 +38,5 @@ RUN docker-php-ext-enable yaz
 # install intl extension
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-install intl
+
+WORKDIR /var/www/html
