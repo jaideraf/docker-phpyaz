@@ -1,7 +1,7 @@
 # This is the Dockerfile for jaideraf/phpyaz
 FROM ubuntu:22.04
 
-FROM php:8.2-apache
+FROM php:8.3-apache
 
 # set timezone
 ENV TZ=America/Sao_Paulo
