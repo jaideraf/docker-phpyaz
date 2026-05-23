@@ -1,5 +1,5 @@
 # docker-phpyaz
-![Docker Pulls](https://img.shields.io/docker/pulls/jaideraf/phpyaz)
+[![Docker Pulls](https://img.shields.io/docker/pulls/jaideraf/phpyaz.svg)](https://hub.docker.com/r/jaideraf/phpyaz)
 
 [Dockerfile](https://github.com/jaideraf/docker-phpyaz) for [jaideraf/phpyaz](https://hub.docker.com/r/jaideraf/phpyaz)
 
