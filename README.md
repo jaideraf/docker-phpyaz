@@ -1,7 +1,7 @@
 # docker-phpyaz
 [Dockerfile](https://github.com/jaideraf/docker-phpyaz) for [jaideraf/phpyaz](https://hub.docker.com/r/jaideraf/phpyaz)
 
-PHP 8.4 with Apache, [phpyaz](https://www.indexdata.com/resources/software/phpyaz/) and [intl](https://www.php.net/manual/en/book.intl.php) extensions (timezone from America/Sao_Paulo). Includes the following PHP modules/extensions:
+Ubuntu 26.04, PHP 8.5 with Apache, [phpyaz](https://www.indexdata.com/resources/software/phpyaz/) and [intl](https://www.php.net/manual/en/book.intl.php) extensions (timezone from America/Sao_Paulo). Includes the following PHP modules/extensions:
 ```
 # php -m
 [PHP Modules]
@@ -12,11 +12,11 @@ date
 dom
 fileinfo
 filter
-ftp
 hash
 iconv
 intl
 json
+lexbor
 libxml
 mbstring
 mysqlnd
@@ -36,9 +36,11 @@ SPL
 sqlite3
 standard
 tokenizer
+uri
 xml
 xmlreader
 xmlwriter
 yaz
+Zend OPcache
 zlib
 ```

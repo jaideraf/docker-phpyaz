@@ -1,7 +1,7 @@
 # This is the Dockerfile for jaideraf/phpyaz
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 
-FROM php:8.4-apache
+FROM php:8.5-apache
 
 # set timezone
 ENV TZ=America/Sao_Paulo
@@ -16,10 +16,12 @@ RUN apt-get update && apt-get install -y \
     wget \
     && rm -rf /var/lib/apt/lists/*
 
-RUN wget "http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu66_66.1-2ubuntu2.1_amd64.deb"
-RUN dpkg -i libicu66_66.1-2ubuntu2.1_amd64.deb ; rm libicu66_66.1-2ubuntu2.1_amd64.deb
+RUN wget "http://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu78_78.2-2ubuntu1_amd64.deb"
+RUN wget "http://archive.ubuntu.com/ubuntu/pool/main/libx/libxml2/libxml2-16_2.15.2+dfsg-0.1_amd64.deb"
+RUN dpkg -i libicu78_78.2-2ubuntu1_amd64.deb libxml2-16_2.15.2+dfsg-0.1_amd64.deb ; \
+    rm libicu78_78.2-2ubuntu1_amd64.deb libxml2-16_2.15.2+dfsg-0.1_amd64.deb
 
-RUN echo "deb [signed-by=/usr/share/keyrings/indexdata.gpg] https://ftp.indexdata.com/ubuntu focal main" \
+RUN echo "deb [signed-by=/usr/share/keyrings/indexdata.gpg] https://ftp.indexdata.com/ubuntu resolute main" \
     | tee -a /etc/apt/sources.list \
     && wget -qO - https://ftp.indexdata.com/debian/indexdata.asc \
     | gpg --dearmor | tee /usr/share/keyrings/indexdata.gpg >/dev/null
